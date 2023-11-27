@@ -6,7 +6,7 @@
 namespace AprilTags {
 
 float const Edge::minMag = 0.004f;
-float const Edge::maxEdgeCost = 30.f * float(M_PI) / 180.f;
+float const Edge::maxEdgeCost = 30.f * float(EIGEN_PI) / 180.f;
 int const Edge::WEIGHT_SCALE = 100;
 float const Edge::thetaThresh = 100;
 float const Edge::magThresh = 1200;
@@ -94,8 +94,8 @@ void Edge::mergeEdges(std::vector<Edge> &edges, UnionFindSimple &uf,
     float tminab = min(tmina, tminb + bshift);
     float tmaxab = max(tmaxa, tmaxb + bshift);
 
-    if (tmaxab-tminab > 2*(float)M_PI) // corner case that's probably not too useful to handle correctly, oh well.
-      tmaxab = tminab + 2*(float)M_PI;
+    if (tmaxab-tminab > 2*(float)EIGEN_PI) // corner case that's probably not too useful to handle correctly, oh well.
+      tmaxab = tminab + 2*(float)EIGEN_PI;
 
     float mminab = min(mmin[ida], mmin[idb]);
     float mmaxab = max(mmax[ida], mmax[idb]);

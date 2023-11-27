@@ -305,7 +305,7 @@ namespace AprilTags {
     }
 
     if (flip > noflip) {
-      float temp = seg.getTheta() + (float)M_PI;
+      float temp = seg.getTheta() + (float)EIGEN_PI;
       seg.setTheta(temp);
     }
 
@@ -491,8 +491,8 @@ namespace AprilTags {
       thisTagDetection.homography = quad.homography.getH();
       thisTagDetection.hxy = quad.homography.getCXY();
 
-      float c = std::cos(thisTagDetection.rotation*(float)M_PI/2);
-      float s = std::sin(thisTagDetection.rotation*(float)M_PI/2);
+      float c = std::cos(thisTagDetection.rotation*(float)EIGEN_PI/2);
+      float s = std::sin(thisTagDetection.rotation*(float)EIGEN_PI/2);
       Eigen::Matrix3d R;
       R.setZero();
       R(0,0) = R(1,1) = c;
