@@ -39,15 +39,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 #############
 ## EXAMPLES #
 #############
-#if(NOT APPLE)
-#  cs_add_executable(apriltags_demo
-#    src/example/apriltags_demo.cpp src/example/Serial.cpp
-#  )
-#  target_link_libraries(apriltags_demo ${PROJECT_NAME} v4l2)
-#endif()
-
-###########
-## EXPORT #
-###########
-#cs_install()
-#cs_export()
+option(BUILD_APRILTAG_EXAMPLES "Build examples" ON)
+if (BUILD_APRILTAG_EXAMPLES)
+  add_subdirectory(samples)
+endif()
